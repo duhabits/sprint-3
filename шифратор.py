@@ -1,10 +1,19 @@
 class CipherMaster:
-    # Не изменяйте и не перемещайте эту переменную
-    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+    def __init__(self, alp):
+        self.alphabet = alp
 
     def process_text(self, text: str, shift: int, is_encrypt: bool):
-        # Метод должен возвращать зашифрованный текст
-        # с учетом переданного смещения shift.
+        """Метод шифратора
+
+        Args:
+            text (str): начавльная строка
+            shift (int): код
+            is_encrypt (bool): шиф/дешиф
+
+        Returns:
+            _type_: None
+        """
         if is_encrypt is False:
             shift = -shift
         alfavit = self.alphabet
@@ -26,7 +35,9 @@ class CipherMaster:
         return "".join(result)
 
 
-cipher_master = CipherMaster()
+alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+cipher_master = CipherMaster(alp=alphabet)
 print(
     cipher_master.process_text(
         text="Саня, сосал ?",
@@ -36,8 +47,8 @@ print(
 )
 print(
     cipher_master.process_text(
-        text="Олебэи яфвнэ мроплж сэжи — э пэй рдв злййвкпш лп нвящывнэ",
-        shift=-3,
+        text="увпб, урувн ?",
+        shift=2,
         is_encrypt=False,
     )
 )
